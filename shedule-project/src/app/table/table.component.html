@@ -1,0 +1,25 @@
+<div class="container">
+  <ul class="nav nav-pills nav-justified">
+    <li class="active" (click)="getDataFromServer(datesArray[0])"><a data-toggle="pill" href="#">TODAY</a></li>
+    <li (click)="getDataFromServer(datesArray[1])"><a data-toggle="pill" href="#">TOMORROW</a></li>
+    <li (click)="getDataFromServer(datesArray[2])"><a data-toggle="pill" href="#">{{theDayAfterTomorrowDate}}</a></li>
+  </ul>           
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Program</th>
+        <th>Time</th>
+        <th>Instructor</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let class of sheduleData | filter: querySerach">
+        <td>{{class.class_type_name}}</td>
+        <td>{{class.appt_start_tm | time}} - {{class.appt_end_tm | time}}</td>
+        <td>{{class.instructor_name}}</td>
+        <td>{{class.resource_name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

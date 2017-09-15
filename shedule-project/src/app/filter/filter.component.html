@@ -1,0 +1,12 @@
+<div class="container">
+  <form class="form-inline">
+    <div class="form-group">
+      <label class="sr-only" for="filter">Email address:</label>
+      <input type="test" class="form-control" id="filter">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="search">Search:</label>
+      <input type="text" class="form-control" id="search" [(ngModel)]="query" [ngModelOptions]="{standalone: true}" (ngModelChange)="setQuery()">
+    </div>
+  </form>
+</div>
