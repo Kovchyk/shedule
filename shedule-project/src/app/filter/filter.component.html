@@ -1,9 +1,9 @@
 <div class="container">
   <form class="form-inline">
-    <div class="form-group">
-      <label class="sr-only" for="filter">Email address:</label>
-      <input type="test" class="form-control" id="filter">
-    </div>
+    <label class="sr-only" for="sel1">Select list:</label>
+    <select class="form-control" id="sel1" >
+      <option *ngFor="let data of data">{{data.name}}</option>
+    </select>
     <div class="form-group">
       <label class="sr-only" for="search">Search:</label>
       <input type="text" class="form-control" id="search" [(ngModel)]="query" [ngModelOptions]="{standalone: true}" (ngModelChange)="setQuery()">

@@ -11,9 +11,12 @@ export class FilterComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
   query: string;
+  data: any;
 
   ngOnInit() {
-
+    this.dataService.getData("9/16/2017").subscribe(res => {
+      this.data = res.area_filters;
+    });
   }
 
   setQuery() {
