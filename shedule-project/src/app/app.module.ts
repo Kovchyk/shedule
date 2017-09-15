@@ -6,9 +6,9 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { TableComponent } from './table/table.component';
 import { FilterComponent } from './filter/filter.component';
-import { TimePipe } from './time.pipe';
-import { DataService } from 'app/data.service';
-import { FilterPipe } from './filter.pipe';
+import { TimePipe } from './pipes/time.pipe';
+import { DataService } from "./services/data.service";
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [

@@ -1,12 +1,12 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
-  name: 'filter',
+  name: "filter",
   pure: false
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(sheduleData: any[], name: string): any {
+  transform(sheduleData: any[], name: string): Array<any> {
     if (sheduleData == null) {
       return null;
     }

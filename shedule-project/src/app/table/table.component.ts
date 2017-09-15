@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
-import { TimePipe } from '../time.pipe';
-import { FilterPipe } from '../filter.pipe';
+import { Component, OnInit } from "@angular/core";
+import { DataService } from "../services/data.service";
+import { TimePipe } from "../pipes/time.pipe";
+import { FilterPipe } from "../pipes/filter.pipe";
 
 @Component({
-  selector: 'shedule-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  selector: "shedule-table",
+  templateUrl: "./table.component.html",
+  styleUrls: ["./table.component.css"]
 })
 export class TableComponent implements OnInit {
 
@@ -41,7 +41,7 @@ export class TableComponent implements OnInit {
   getTheDayAfterTomorrowDate(date) {
     date.setDate(date.getDate() + 2);
     var currentDateArr = date.toDateString().split(" ");
-    this.theDayAfterTomorrowDate = currentDateArr[0].toUpperCase() + ', ' + currentDateArr[1].toUpperCase() + ' ' + currentDateArr[2];
+    this.theDayAfterTomorrowDate = currentDateArr[0].toUpperCase() + ", " + currentDateArr[1].toUpperCase() + " " + currentDateArr[2];
   }
 
   getDataFromServer(date: string) {
