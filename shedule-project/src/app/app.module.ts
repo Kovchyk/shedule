@@ -9,6 +9,8 @@ import { FilterComponent } from './filter/filter.component';
 import { TimePipe } from './pipes/time.pipe';
 import { DataService } from "./services/data.service";
 import { FilterPipe } from './pipes/filter.pipe';
+import { NavComponent } from './nav/nav.component';
+import { NavItemComponent } from './nav-item/nav-item.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { FilterPipe } from './pipes/filter.pipe';
     TableComponent,
     FilterComponent,
     TimePipe,
-    FilterPipe
+    FilterPipe,
+    NavComponent,
+    NavItemComponent
   ],
   imports: [
     BrowserModule,

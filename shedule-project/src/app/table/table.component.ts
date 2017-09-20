@@ -13,29 +13,18 @@ export class TableComponent implements OnInit {
   constructor(private dataService: DataService) { }
   sheduleData;
   datesArray = [];
+  currentDate: string;
   theDayAfterTomorrowDate: string;
   querySerach: string = "";
+  filter: string = "";
  
-
   ngOnInit() {
-
-    this.getDatesArray(new Date());
-    this.getDataFromServer(this.datesArray[0]);
-    this.getTheDayAfterTomorrowDate(new Date());
+    let date = new Date();
+    this.currentDate = date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear();
+    this.getDataFromServer(this.currentDate);
+    this.getTheDayAfterTomorrowDate(date);
     this.dataService.query.subscribe(res => this.querySerach = res);
-  }
-
-  getDatesArray(date) {
-
-    for (var i = 0; i <= 2; i++) {
-      
-      if (i) {
-        date.setDate(date.getDate() + 1);
-      }
-
-      this.datesArray.push(date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear());
-    }
-
+    this.dataService.filter.subscribe(res => this.filter = res);
   }
 
   getTheDayAfterTomorrowDate(date) {
@@ -63,4 +52,5 @@ export class TableComponent implements OnInit {
 
      });
   }
+
 }

@@ -1,0 +1,3 @@
+<ul class="nav nav-pills nav-justified">
+  <li *ngFor="let item of items; let i = index" (click)="passDate(datesArray[i]); selectItem(item)" [class.active]="item.active"><a href="#">{{item.title}}</a></li>
+</ul>

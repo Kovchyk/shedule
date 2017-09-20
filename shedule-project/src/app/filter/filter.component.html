@@ -1,12 +1,21 @@
 <div class="container">
   <form class="form-inline">
     <label class="sr-only" for="sel1">Select list:</label>
-    <select class="form-control" id="sel1" >
+    <select class="form-control" id="sel1" [(ngModel)]="filter" [ngModelOptions]="{standalone: true}" (change)="setFilter()">
+      <option *ngIf="filter !== ''">All</option>
       <option *ngFor="let data of data">{{data.name}}</option>
     </select>
     <div class="form-group">
       <label class="sr-only" for="search">Search:</label>
-      <input type="text" class="form-control" id="search" [(ngModel)]="query" [ngModelOptions]="{standalone: true}" (ngModelChange)="setQuery()">
+      <input
+        type="text" 
+        class="form-control" 
+        id="search" 
+        [(ngModel)]="query" 
+        [ngModelOptions]="{standalone: true}" 
+        (ngModelChange)="setQuery()"
+        placeholder="Search by program or instructor"
+      >
     </div>
   </form>
 </div>

@@ -10,16 +10,28 @@ import { DataService } from "../services/data.service";
 export class FilterComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
-  query: string;
+  query: string = "";
+  filter: string = "";
   data: any;
-
+  
   ngOnInit() {
-    this.dataService.getData("9/16/2017").subscribe(res => {
+    let date = new Date();
+    let currentDate = date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear();
+
+    this.dataService.getData(currentDate).subscribe(res => {
       this.data = res.area_filters;
     });
   }
 
   setQuery() {
     this.dataService.query.next(this.query);
+  }
+  setFilter() {
+
+    if (this.filter === "All") {
+      this.filter = "";
+    }
+
+    this.dataService.filter.next(this.filter);
   }
 }
